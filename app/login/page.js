@@ -49,22 +49,21 @@ export default function page() {
     })
     return (
     <main className={styles.main}>
-        
-            <div className={styles.panel}>
-                <p className={styles.button} onClick={()=>{router.push("/login")}}>Login</p>
+        <div className={styles.panel}>
+            <p className={styles.button} onClick={()=>{router.push("/")}}>Home</p>
+        </div>
+        <div className={styles.home}>
+            <div className={styles.card}>
+                <h1>login</h1>
+                <form action='api/login' method='post'>
+                    <label htmlFor="name">name</label>
+                    <input type="text" name="name" id="name" />
+                    <label htmlFor="password">password</label>
+                    <input type="password" name="password" id="password" required/>
+                    <input type="submit" value="login" />
+                </form>
             </div>
-            <div className={styles.home}>
-                <div className={styles.card}>
-                    <h1>login</h1>
-                    <form action='api/login' method='post'>
-                        <label htmlFor="name">name</label>
-                        <input type="text" name="name" id="name" />
-                        <label htmlFor="password">password</label>
-                        <input type="password" name="password" id="password" required/>
-                        <input type="submit" value="login" />
-                    </form>
-                </div>
-            </div>
+        </div>
     </main>
     )
 }
