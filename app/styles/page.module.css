@@ -1,10 +1,16 @@
 .main {
   display: flex;
-  /* flex-direction: column; */
+  flex-wrap: wrap;
+  /* flex-flow:row-reverse; */
+  flex-direction: column;
   /* justify-content: space-between; */
   /* align-items: center; */
   /* padding: 6rem; */
   min-height: 100vh;
+}
+
+.panel{
+  margin: .4rem !important;
 }
 
 .home {
@@ -13,7 +19,7 @@
   padding: 1rem;
   background-color: rgb(236, 170, 238);
   flex-grow: 1;
-  width: 10px;
+  /* width: 10px; */
   border-radius: 1rem;
   border: solid 1px rgb(150, 108, 151);
   box-shadow: 0rem 0rem .1rem 0rem rgb(21, 6, 24);

@@ -1,8 +1,6 @@
 import { redirect } from "next/navigation"
 import login from "/app/lib/login";
 
-// import type {UserLogin} from "@/app/lib/types/dtypes";
-
 export async function POST(req) {
   const formData = await req.formData()
   const name = formData.get("name")

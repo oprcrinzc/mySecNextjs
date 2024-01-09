@@ -1,7 +1,6 @@
 import React from 'react'
 import {cookies} from "next/headers"
 import '@/app/styles/alertBox.css'
-// import type {AlertProps} from '@/app/lib/types/dtypes'
 import clsx from 'clsx'
 
 export default function alert(props) {

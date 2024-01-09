@@ -8,9 +8,10 @@ import styles from '/app/styles/page.module.css'
 import { getCookie, deleteCookie } from 'cookies-next';
 import clsx from 'clsx'
 import Swal from 'sweetalert2'
-// import type { SweetAlertIcon } from 'sweetalert2'
+import { useRouter } from 'next/navigation'
 
 export default function page() {
+    const router = useRouter()
     const [hasAlert, setHasAlert] = useState(false)
     const alertHandler = async () => {
         let getc = getCookie("alert")
@@ -48,19 +49,22 @@ export default function page() {
     })
     return (
     <main className={styles.main}>
-        {}
-        <div className={styles.home}>
-            <div className={styles.card}>
-                <h1>login</h1>
-                <form action='api/login' method='post'>
-                    <label htmlFor="name">name</label>
-                    <input type="text" name="name" id="name" />
-                    <label htmlFor="password">password</label>
-                    <input type="password" name="password" id="password" required/>
-                    <input type="submit" value="login" />
-                </form>
+        
+            <div className={styles.panel}>
+                <p className={styles.button} onClick={()=>{router.push("/login")}}>Login</p>
             </div>
-        </div>
+            <div className={styles.home}>
+                <div className={styles.card}>
+                    <h1>login</h1>
+                    <form action='api/login' method='post'>
+                        <label htmlFor="name">name</label>
+                        <input type="text" name="name" id="name" />
+                        <label htmlFor="password">password</label>
+                        <input type="password" name="password" id="password" required/>
+                        <input type="submit" value="login" />
+                    </form>
+                </div>
+            </div>
     </main>
     )
 }
