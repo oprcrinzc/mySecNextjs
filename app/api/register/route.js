@@ -1,19 +1,17 @@
 import { redirect } from "next/navigation"
-import login from "/app/lib/login";
+import register from "/app/lib/register";
 
 export async function POST(req) {
   const formData = await req.formData()
   const name = formData.get("name")
   const password = formData.get("password")
-  let loginStatus = {}
+//   let loginStatus = {}
   if(typeof(name)==="string" && typeof(password) === "string"){
-    const loginData = {
+    const registerData = {
       name: name,
       password: password
     }
-    loginStatus = await login(loginData)
+    await register(registerData)
   }
-  console.log(loginStatus)
-  // return Response.json({msg: await User.find({})})
   redirect('/login')
 }

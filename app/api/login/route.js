@@ -13,7 +13,5 @@ export async function POST(req) {
     }
     loginStatus = await login(loginData)
   }
-  console.log(loginStatus)
-  // return Response.json({msg: await User.find({})})
   redirect('/login')
 }

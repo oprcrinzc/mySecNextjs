@@ -5,12 +5,15 @@ const userSchema = new Schema({
   password: String,
 });
 
-const UserDb = models.User || model('User', userSchema);
+export const UserDb = models.User || model('User', userSchema);
 
 
-const createUser = async (data) => {
-
+export async function createUser (U, data) {
+  await U.create({
+    name: data.name,
+    password: data.password
+  })
 }
 
 
-module.export = {UserDb, createUser};
+// module.export = {UserDb, createUser};

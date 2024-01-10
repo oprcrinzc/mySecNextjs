@@ -51,7 +51,10 @@ export default function page() {
         }
     }
     useEffect(()=>{
-        setInterval(()=>{alertHandler()}, 1000)
+        setInterval(()=>{
+            alertHandler()
+            if(user.isLogin == true) router.push('/me')
+        }, 1000)
     })
     return (
     <MainClass>
