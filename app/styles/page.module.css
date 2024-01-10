@@ -1,6 +1,7 @@
 .main {
   display: flex;
   flex-wrap: wrap;
+  /* flex-shrink: ; */
   /* flex-flow:row-reverse; */
   flex-direction: column;
   /* justify-content: space-between; */
@@ -10,7 +11,26 @@
 }
 
 .panel{
+  /* flex-grow: 1; */
+  /* flex-shrink: 1; */
+  display: flex;
+  /* flex-wrap: wrap; */
   margin: .4rem !important;
+  padding: 1rem;
+  background-color: rgb(81, 57, 82);
+  border-radius: 1rem;
+  border: solid 1px rgb(54, 30, 54);
+  box-shadow: 0rem 0rem 10rem .5rem rgb(39, 22, 43);
+}
+.panel > .button {
+  flex-grow: 0;
+  /* position: absolute; */
+  background-color: rgb(173, 96, 192);
+}
+
+.ghost {
+  display: flex;
+  flex-grow: 1;
 }
 
 .home {
@@ -47,6 +67,7 @@
 
 .card {
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   padding: 1rem;
   border-radius: 1rem;
@@ -63,10 +84,12 @@
   border-radius: 1rem;
   height: 2rem;
   font-size: 24px;
+  height: auto;
 }
 .card > form > input[type="submit"] {
   background-color: rgb(141, 250, 141);
   margin-top: 1rem;
+  height: auto;
 }
 .card > h1 {
   flex-grow: 1;

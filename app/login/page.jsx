@@ -6,9 +6,15 @@ import { FormEvent } from 'react'
 import AlertHandler from '../components/alertHandler'
 import styles from '/app/styles/page.module.css'
 import { getCookie, deleteCookie } from 'cookies-next';
+import user from '../lib/user'
+
 import clsx from 'clsx'
 import Swal from 'sweetalert2'
 import { useRouter } from 'next/navigation'
+
+// import Component
+import {ButtonCompo, RegisterCompo, LoginCompo} from '/app/components/star'
+import {HomeClass, GhostClass, PanelClass, MainClass} from '/app/components/class/star'
 
 export default function page() {
     const router = useRouter()
@@ -48,22 +54,18 @@ export default function page() {
         setInterval(()=>{alertHandler()}, 1000)
     })
     return (
-    <main className={styles.main}>
-        <div className={styles.panel}>
-            <p className={styles.button} onClick={()=>{router.push("/")}}>Home</p>
-        </div>
-        <div className={styles.home}>
-            <div className={styles.card}>
-                <h1>login</h1>
-                <form action='api/login' method='post'>
-                    <label htmlFor="name">name</label>
-                    <input type="text" name="name" id="name" />
-                    <label htmlFor="password">password</label>
-                    <input type="password" name="password" id="password" required/>
-                    <input type="submit" value="login" />
-                </form>
-            </div>
-        </div>
-    </main>
+    <MainClass>
+        <PanelClass>
+            <ButtonCompo text='Home' onClick={()=>{router.push("/")}}/>
+        </PanelClass>
+        <GhostClass>
+            <HomeClass>
+                <LoginCompo/>
+            </HomeClass>
+            <HomeClass>
+                <RegisterCompo/>
+            </HomeClass>
+        </GhostClass>
+    </MainClass>
     )
 }

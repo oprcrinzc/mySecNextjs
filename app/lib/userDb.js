@@ -7,4 +7,10 @@ const userSchema = new Schema({
 
 const UserDb = models.User || model('User', userSchema);
 
-export default UserDb;
+
+const createUser = async (data) => {
+
+}
+
+
+module.export = {UserDb, createUser};
