@@ -55,6 +55,7 @@
   font-size: 24px;
   user-select: none;
   cursor: pointer;
+  text-decoration: none;
 }
 .button:hover {
   transform: scale(1.1);
@@ -75,7 +76,7 @@
 }
 .card > form {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   gap: .2rem;
   font-size: large;
 }
@@ -95,4 +96,16 @@
   flex-grow: 1;
   margin-bottom: 1rem;
 }
+.card > .content {
+  background-color: rgb(83, 137, 185) !important;
+}
 
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  flex-grow: 1;
+}
+
+/* .card > .actions {
+  flex-grow: 1;
+} */

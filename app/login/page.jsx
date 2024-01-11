@@ -16,9 +16,11 @@ import { useRouter } from 'next/navigation'
 import {ButtonCompo, RegisterCompo, LoginCompo} from '/app/components/star'
 import {HomeClass, GhostClass, PanelClass, MainClass} from '/app/components/class/star'
 
+import Me from '/app/me/page'
+
 export default function page() {
+    const u = new user()
     const router = useRouter()
-    const [hasAlert, setHasAlert] = useState(false)
     const alertHandler = async () => {
         let getc = getCookie("alert")
         try {
@@ -53,22 +55,47 @@ export default function page() {
     useEffect(()=>{
         setInterval(()=>{
             alertHandler()
-            if(user.isLogin == true) router.push('/me')
         }, 1000)
     })
+    // window.location = '/me'
+
+    let content = (<></>)
+    // if (u.isLogin){
+    //     content = (
+    //         <>
+            // <HomeClass>
+            //     <p>goto</p>
+            //     <ButtonCompo text="me" onClick={()=>{router.push("me")}}/>
+            // </HomeClass>
+    //     </>
+    //     )
+    // } else {
+    //     content = (
+            // <>
+            //     <HomeClass>
+            //         <LoginCompo/>
+            //     </HomeClass>
+            //     <HomeClass>
+            //         <RegisterCompo/>
+            //     </HomeClass>
+            // </>    
+    //         )
+    // }
     return (
-    <MainClass>
-        <PanelClass>
-            <ButtonCompo text='Home' onClick={()=>{router.push("/")}}/>
-        </PanelClass>
         <GhostClass>
-            <HomeClass>
-                <LoginCompo/>
-            </HomeClass>
-            <HomeClass>
-                <RegisterCompo/>
-            </HomeClass>
+            {
+                u.isLogin == true ? (<HomeClass>
+                    <p>goto</p>
+                    <ButtonCompo text="me" onClick={()=>{router.push("me")}}/>
+                </HomeClass>) : (<>
+                <HomeClass>
+                    <LoginCompo/>
+                </HomeClass>
+                <HomeClass>
+                    <RegisterCompo/>
+                </HomeClass>
+            </>  )
+            }
         </GhostClass>
-    </MainClass>
     )
 }

@@ -10,10 +10,8 @@ import {HomeClass, GhostClass, PanelClass, MainClass} from '/app/components/clas
 export default function Home() {
   const router = useRouter()
   return (
-    <MainClass>
-      <HomeClass>
-        <ButtonCompo text="Login" onClick={()=>{router.push("/login")}}/>
-      </HomeClass>
-    </MainClass>
+  <HomeClass>
+    <ButtonCompo text="Login" onClick={()=>{router.push("/login")}}/>
+  </HomeClass>
   )
 }

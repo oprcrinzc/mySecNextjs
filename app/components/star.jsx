@@ -1,9 +1,20 @@
+
 import React from 'react'
 import styles from '/app/styles/page.module.css'
+// import { useRouter } from 'next/navigation'
+
 
 export function ButtonCompo(props) {
+    let onClick = props.onClick
+    if(props.onClick=="goHome"){
+       onClick = ()=>{
+        
+        const router = useRouter()
+        router.push('/')
+       } 
+    }
   return (
-    <p className={styles.button} onClick={props.onClick}>{props.text}</p>
+    <p className={styles.button} onClick={onClick}>{props.text}</p>
   )
 }
 
@@ -37,3 +48,9 @@ export  function RegisterCompo() {
     )
 }
   
+export  function CardCompo(props) {
+    
+    return (
+        <div className={styles.card}>{props.children}</div>
+    )
+}

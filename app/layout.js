@@ -1,11 +1,15 @@
 import { Inter } from 'next/font/google'
 import '/app/styles/globals.css'
+import styles from '/app/styles/page.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
+
+
 import {ButtonCompo, RegisterCompo, LoginCompo} from '/app/components/star'
 import {HomeClass, GhostClass, PanelClass, MainClass} from '/app/components/class/star'
-
+import { redirect } from "next/navigation"
+import Link from 'next/link'
 
 export const metadata = {
   title: 'Create Next App',
@@ -15,7 +19,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <MainClass><PanelClass><Link className={styles.button} href="/" scroll={true}>Home</Link></PanelClass>{children}</MainClass>
+        </body>
     </html>
   )
 }
