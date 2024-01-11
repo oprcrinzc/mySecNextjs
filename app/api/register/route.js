@@ -9,7 +9,8 @@ export async function POST(req) {
   if(typeof(name)==="string" && typeof(password) === "string"){
     const registerData = {
       name: name,
-      password: password
+      password: password,
+      req: req
     }
     await register(registerData)
   }

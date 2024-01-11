@@ -76,7 +76,7 @@
 }
 .card > form {
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   gap: .2rem;
   font-size: large;
 }

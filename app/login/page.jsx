@@ -1,12 +1,9 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
-import { FormEvent } from 'react'
-// import Alert from './app/components/alert'
-import AlertHandler from '../components/alertHandler'
 import styles from '/app/styles/page.module.css'
 import { getCookie, deleteCookie } from 'cookies-next';
-import user from '../lib/user'
+import {user} from '../lib/user'
 
 import clsx from 'clsx'
 import Swal from 'sweetalert2'
@@ -16,10 +13,9 @@ import { useRouter } from 'next/navigation'
 import {ButtonCompo, RegisterCompo, LoginCompo} from '/app/components/star'
 import {HomeClass, GhostClass, PanelClass, MainClass} from '/app/components/class/star'
 
-import Me from '/app/me/page'
 
 export default function page() {
-    const u = new user()
+    const [u, setU] = useState({})
     const router = useRouter()
     const alertHandler = async () => {
         let getc = getCookie("alert")
@@ -45,7 +41,7 @@ export default function page() {
                     icon: iconx ,
                     confirmButtonText: 'ok'
                 })
-                await deleteCookie('alert')
+                setTimeout(()=>{deleteCookie('alert')}, 0)
             }
         } catch (e){
             console.log('errorrrr')
@@ -56,7 +52,10 @@ export default function page() {
         setInterval(()=>{
             alertHandler()
         }, 1000)
-    })
+        user().then((i)=>{
+            setU(i)
+        })
+    }, [])
     // window.location = '/me'
 
     let content = (<></>)
@@ -87,14 +86,7 @@ export default function page() {
                 u.isLogin == true ? (<HomeClass>
                     <p>goto</p>
                     <ButtonCompo text="me" onClick={()=>{router.push("me")}}/>
-                </HomeClass>) : (<>
-                <HomeClass>
-                    <LoginCompo/>
-                </HomeClass>
-                <HomeClass>
-                    <RegisterCompo/>
-                </HomeClass>
-            </>  )
+                </HomeClass>) : (<><HomeClass><LoginCompo/></HomeClass><HomeClass><RegisterCompo/></HomeClass></>)
             }
         </GhostClass>
     )

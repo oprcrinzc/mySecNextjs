@@ -2,7 +2,7 @@
 
 import React, { useEffect , useState} from 'react'
 import { useRouter } from 'next/navigation'
-import user from '../lib/user'
+import {user} from '../lib/user'
 import styles from '/app/styles/page.module.css'
 
 // import Component
@@ -12,21 +12,23 @@ import {HomeClass, GhostClass, PanelClass, MainClass} from '/app/components/clas
 
 
 export default function page() {
-  const u = new user()
+  const [u, setU] = useState({})
   const router = useRouter()
   const [name, setName] = useState('');
   useEffect(()=>{
-    setName(u.name)
+    user().then((i)=>{
+      setU(i)
+  })
   },[])
   return (
     <HomeClass>
       <CardCompo>
         <h1>Information</h1>
         <div className="content">
-          <h3>name</h3><p>{name}</p>
+          <h3>name</h3><p>{u.name}</p>
         </div>
         <div className={styles.actions}>
-          <ButtonCompo text="Logout"/>
+          <ButtonCompo text="Logout" onClick={()=>{router.push('/logout')}}/>
         </div>
       </CardCompo>
     </HomeClass>
