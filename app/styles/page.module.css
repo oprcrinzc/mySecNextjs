@@ -32,6 +32,21 @@
   display: flex;
   flex-grow: 1;
 }
+@media screen and (max-width:860px){
+  .ghost {
+    flex-direction: column;
+  }
+  .home > * {
+    height: auto;
+  }
+  .card {
+    margin: 0;
+    width: 1vh;
+  }
+  /* .main {
+    width: fit-content;
+  } */
+}
 
 .home {
   display: flex;
@@ -83,7 +98,6 @@
 .card > form > input {
   border: none;
   border-radius: 1rem;
-  height: 2rem;
   font-size: 24px;
   height: auto;
 }

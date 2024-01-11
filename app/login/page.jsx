@@ -41,7 +41,7 @@ export default function page() {
                     icon: iconx ,
                     confirmButtonText: 'ok'
                 })
-                setTimeout(()=>{deleteCookie('alert')}, 0)
+                setTimeout(()=>{deleteCookie('alert')}, 3)
             }
         } catch (e){
             console.log('errorrrr')
@@ -51,7 +51,7 @@ export default function page() {
     useEffect(()=>{
         setInterval(()=>{
             alertHandler()
-        }, 1000)
+        }, 1200)
         user().then((i)=>{
             setU(i)
         })
