@@ -1,6 +1,6 @@
 // import type {UserLogin, AlertProps} from "./types/dtypes"
-import connectMongo from "./mongodb"
-import {UserDb, createUser} from "./userDb"
+import connectMongo from "../mongodb"
+import {UserDb, createUser} from "../db/userDb"
 import {cookies} from "next/headers"
 
 const login = async (data) => {

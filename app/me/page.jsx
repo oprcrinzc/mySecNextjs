@@ -2,7 +2,7 @@
 
 import React, { useEffect , useState} from 'react'
 import { useRouter } from 'next/navigation'
-import {user} from '../lib/user'
+import {user} from '../lib/user/user'
 import styles from '/app/styles/page.module.css'
 
 // import Component

@@ -11,7 +11,7 @@ export default function Home() {
   const router = useRouter()
   return (
   <HomeClass>
-    <ButtonCompo text="Login" onClick={()=>{router.push("/login")}}/>
+    {/* <ButtonCompo text="Login" onClick={()=>{router.push("/login")}}/> */}
   </HomeClass>
   )
 }

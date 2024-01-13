@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation"
-import login from "/app/lib/login";
+import login from "/app/lib/user/login";
 
 export async function POST(req) {
   const formData = await req.formData()

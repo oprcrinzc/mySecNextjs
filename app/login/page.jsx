@@ -1,11 +1,9 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
-import styles from '/app/styles/page.module.css'
 import { getCookie, deleteCookie } from 'cookies-next';
-import {user} from '../lib/user'
+import {user} from '/app/lib/user/user'
 
-import clsx from 'clsx'
 import Swal from 'sweetalert2'
 import { useRouter } from 'next/navigation'
 
@@ -84,7 +82,6 @@ export default function page() {
         <GhostClass>
             {
                 u.isLogin == true ? (<HomeClass>
-                    <p>goto</p>
                     <ButtonCompo text="me" onClick={()=>{router.push("me")}}/>
                 </HomeClass>) : (<><HomeClass><LoginCompo/></HomeClass><HomeClass><RegisterCompo/></HomeClass></>)
             }

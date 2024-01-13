@@ -11,10 +11,9 @@
 }
 
 .panel{
-  /* flex-grow: 1; */
-  /* flex-shrink: 1; */
   display: flex;
-  /* flex-wrap: wrap; */
+  /* justify-content: space-between; */
+  flex-direction: row;
   margin: .4rem !important;
   padding: 1rem;
   background-color: rgb(81, 57, 82);
@@ -24,8 +23,13 @@
 }
 .panel > .button {
   flex-grow: 0;
-  /* position: absolute; */
   background-color: rgb(173, 96, 192);
+}
+.panel > *:last-child {
+  margin-left: auto;
+  background-color: rgb(91, 37, 79);
+  border: 1px solid rgb(109, 41, 105);
+  color: rgb(196, 152, 189);
 }
 
 .ghost {

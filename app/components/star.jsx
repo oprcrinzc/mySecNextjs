@@ -1,7 +1,7 @@
 
 import React from 'react'
 import styles from '/app/styles/page.module.css'
-// import { useRouter } from 'next/navigation'
+import {PanelClass} from '/app/components/class/star'
 
 
 export function ButtonCompo(props) {
@@ -48,9 +48,20 @@ export  function RegisterCompo() {
     )
 }
   
-export  function CardCompo(props) {
+export function CardCompo(props) {
     
     return (
         <div className={styles.card}>{props.children}</div>
+    )
+}
+
+export function NavCompo(){
+    {user().then((i)=>{
+        i.isLogin == false ? <Link className={styles.button} id='r' href="/login" scroll={true}>Login</Link> : <Link className={styles.button} id='r' href="/me" scroll={true}>me</Link>
+    })}
+    return(
+        <PanelClass>
+            
+        </PanelClass>
     )
 }
