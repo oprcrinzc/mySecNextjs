@@ -15,6 +15,6 @@ export async function create(data){
         data.name == null ? errorString += " box name" : ""
         data.owner == null ? errorString += " who" : ""
         errorString += " error"
-        cookieStore.set("alert", JSON.stringify({title:"Error", text:errorString, code:0}), data.req)
+        cookieStore.set("alert", JSON.stringify({title:"Error", text:errorString, code:1}), data.req)
     }
 }

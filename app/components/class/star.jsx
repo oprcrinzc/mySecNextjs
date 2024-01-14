@@ -26,3 +26,15 @@ export function MainClass(props) {
       <div className={`${styles.main} ${addClass}`}>{props.children}</div>
     )
 }
+export function ContentClass(props) {
+  let addClass = calcClass(props)
+    return (
+        <div className={`${styles.content} ${addClass}`}>{props.children}</div>
+    )
+}
+export function HeadClass(props) {
+  let add = calcClass(props)
+  return (
+      <div className={`${styles.head} ${add}`} id={props.id}>{props.children}</div>
+  )
+}

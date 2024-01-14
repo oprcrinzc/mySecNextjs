@@ -53,6 +53,14 @@ export  function RegisterCompo() {
 export function CardCompo(props) {
     let add = calcClass(props)
     return (
-        <div className={`${styles.card} ${add}`}>{props.children}</div>
+        <div className={`${styles.card} ${add}`} id={props.id}>{props.children}</div>
     )
 }
+
+export function BoxCompo(props) {
+    let add = calcClass(props)
+    return (
+        <div className={`${styles.box} ${add}`} id={props.id} onClick={props.onClick}>{props.children}</div>
+    )
+}
+

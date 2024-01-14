@@ -10,6 +10,8 @@ export const get = async (req) =>{
     const userExist = await UserDb.find({name:name, password:password})
 
     if (userExist.length == 1){
-        const userBoxes = await BoxesDb.find({owner:name})
+        return await BoxesDb.find({owner:name})
+    } else {
+        return {msg:"none"}
     }
 }

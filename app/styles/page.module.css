@@ -122,11 +122,36 @@
   height: auto;
 }
 .card > h1 {
-  flex-grow: 1;
+  flex-grow: 0;
   margin-bottom: 1rem;
 }
-.card > .content {
-  background-color: rgb(83, 137, 185) !important;
+
+
+.content {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  /* background-color: rgb(83, 137, 185) !important; */
+}
+.content > * {
+  flex-grow: 0 !important;
+}
+
+.box {
+  padding: .4rem;
+  border-radius: .2rem;
+  user-select: none;
+  cursor: pointer;
+
+  box-shadow: 0rem 0rem .3rem .02rem rgb(255, 186, 253);
+}
+
+.head {
+  background-color: rgb(203, 81, 203);
+  box-shadow: 0rem 0rem .3rem .05rem rgb(91, 72, 90);
+  padding: 1rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
 }
 
 .actions {
@@ -138,7 +163,13 @@
 
 .flexRow {flex-direction: row;}
 .flexColumn {flex-direction: column;}
-.flexGrow0 {flex-grow: 0;}
-.flexGrow1 {flex-grow: 1;}
+.flexGrow0 {flex-grow: 0 ;}
+.flexGrow1 {flex-grow: 1 ;}
 .gap0 {gap: 0;}
 .gap1 {gap: 1rem;}
+.cardBg0 {background-color: antiquewhite;}
+.cardBg1 {background-color: rgb(255, 255, 255);}
+.padding0 {padding: 0;}
+.padding1 {padding: 1;}
+.bgRed {background-color: rgb(251, 74, 74);}
+.bgGreen {background-color: rgb(21, 201, 21);}
