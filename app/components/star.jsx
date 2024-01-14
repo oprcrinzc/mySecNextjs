@@ -1,10 +1,10 @@
-
 import React from 'react'
 import styles from '/app/styles/page.module.css'
 import {PanelClass} from '/app/components/class/star'
-
+import {calcClass} from '/app/lib/components/calcClass'
 
 export function ButtonCompo(props) {
+    let add = calcClass(props)
     let onClick = props.onClick
     if(props.onClick=="goHome"){
        onClick = ()=>{
@@ -14,11 +14,12 @@ export function ButtonCompo(props) {
        } 
     }
   return (
-    <p className={styles.button} onClick={onClick}>{props.text}</p>
+    <p className={`${styles.button} ${add}`} onClick={onClick}>{props.text}</p>
   )
 }
 
 export function LoginCompo() {
+    // let add = calcClass(props)
     return (
       <div className={styles.card}>
           <h1>login</h1>
@@ -34,6 +35,7 @@ export function LoginCompo() {
 }
 
 export  function RegisterCompo() {
+    // let add = calcClass(props)
     return (
         <div className={styles.card}>
             <h1>Register</h1>
@@ -49,19 +51,8 @@ export  function RegisterCompo() {
 }
   
 export function CardCompo(props) {
-    
+    let add = calcClass(props)
     return (
-        <div className={styles.card}>{props.children}</div>
-    )
-}
-
-export function NavCompo(){
-    {user().then((i)=>{
-        i.isLogin == false ? <Link className={styles.button} id='r' href="/login" scroll={true}>Login</Link> : <Link className={styles.button} id='r' href="/me" scroll={true}>me</Link>
-    })}
-    return(
-        <PanelClass>
-            
-        </PanelClass>
+        <div className={`${styles.card} ${add}`}>{props.children}</div>
     )
 }

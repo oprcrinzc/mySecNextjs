@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import { getCookie, deleteCookie } from 'cookies-next';
-import {user} from '/app/lib/user/user'
+import {user} from '/app/lib/user/get'
 
 import Swal from 'sweetalert2'
 import { useRouter } from 'next/navigation'
@@ -15,41 +15,11 @@ import {HomeClass, GhostClass, PanelClass, MainClass} from '/app/components/clas
 export default function page() {
     const [u, setU] = useState({})
     const router = useRouter()
-    const alertHandler = async () => {
-        let getc = getCookie("alert")
-        try {
-            if (typeof(getc) == "string"){
-                let json = await (JSON.parse(getc))
-                let iconx
-                console.log(json.code)
-                switch (json.code){
-                    case 0:
-                        iconx = "success"
-                        break;
-                    case 1:
-                        iconx = "warning"
-                        break;
-                    default:
-                        iconx = "question"
-                }
-                console.log(JSON.parse(getc))
-                await Swal.fire({
-                    title: json.title,
-                    text: json.text,
-                    icon: iconx ,
-                    confirmButtonText: 'ok'
-                })
-                setTimeout(()=>{deleteCookie('alert')}, 3)
-            }
-        } catch (e){
-            console.log('errorrrr')
-            setHasAlert(false)
-        }
-    }
+    
     useEffect(()=>{
-        setInterval(()=>{
-            alertHandler()
-        }, 1200)
+        // setInterval(()=>{
+        //     alertHandler()
+        // }, 1200)
         user().then((i)=>{
             setU(i)
         })
@@ -79,11 +49,11 @@ export default function page() {
     //         )
     // }
     return (
-        <GhostClass>
+        <GhostClass flexGrow={1}>
             {
-                u.isLogin == true ? (<HomeClass>
+                u.isLogin == true ? (<HomeClass flexGrow={1}>
                     <ButtonCompo text="me" onClick={()=>{router.push("me")}}/>
-                </HomeClass>) : (<><HomeClass><LoginCompo/></HomeClass><HomeClass><RegisterCompo/></HomeClass></>)
+                </HomeClass>) : (<><HomeClass flexGrow={1}><LoginCompo /></HomeClass><HomeClass flexGrow={1}><RegisterCompo/></HomeClass></>)
             }
         </GhostClass>
     )

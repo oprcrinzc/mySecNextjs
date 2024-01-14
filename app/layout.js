@@ -1,19 +1,17 @@
 "use client"
 
-
 import { Inter } from 'next/font/google'
 import '/app/styles/globals.css'
 import styles from '/app/styles/page.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-
-
-import {NavCompo} from '/app/components/star'
 import {PanelClass, MainClass} from '/app/components/class/star'
 import Link from 'next/link'
-import {user} from '/app/lib/user/user'
+import {user} from '/app/lib/user/get'
 import { useLayoutEffect, useState } from 'react'
+import { getCookie, deleteCookie } from 'cookies-next';
+import Swal from 'sweetalert2'
 
 // export const metadata = {
 //   title: 'Create Next App',
@@ -22,22 +20,55 @@ import { useLayoutEffect, useState } from 'react'
 
 export default function RootLayout({ children }) {
   const [u, setU] = useState({})
+  const alertHandler = async () => {
+    let getc = getCookie("alert")
+    try {
+        if (typeof(getc) == "string"){
+            let json = await (JSON.parse(getc))
+            let iconx
+            // console.log(json.code)
+            switch (json.code){
+                case 0:
+                    iconx = "success"
+                    break;
+                case 1:
+                    iconx = "warning"
+                    break;
+                default:
+                    iconx = "question"
+            }
+            // console.log(JSON.parse(getc))
+            await Swal.fire({
+                title: json.title,
+                text: json.text,
+                icon: iconx ,
+                confirmButtonText: 'ok'
+            })
+            setTimeout(()=>{deleteCookie('alert')}, 3)
+        }
+    } catch (e){
+        console.log('errorrrr')
+    }
+  }
   useLayoutEffect(()=>{
+    
     setInterval(()=>{
+      alertHandler()
       user().then((i)=>{
-        setU(i)
-      })
-    }, 100)
+      setU(i)
+    })
+    }, 1200)
   },[])
   // console.log(u)
   return (
     <html lang="en">
       <body className={inter.className}>
         <MainClass>
-          <PanelClass>
+          <PanelClass flexDirection="column" >
             <Link className={styles.button} id='l' href="/" scroll={true}>Home</Link>
+            <Link className={styles.button} id='l' href="box" scroll={true}>Box</Link>
             {
-        u.isLogin == false ? <Link className={styles.button} id='r' href="/login" scroll={true}>Login</Link> : <Link className={styles.button} id='r' href="/me" scroll={true}>me</Link>
+        u.isLogin == false ? <Link className={styles.button} id='r' href="/login" scroll={true}>Login</Link> : <Link className={styles.button} id='r' href="/me" scroll={true}>{u.name}</Link>
     }
           </PanelClass>{children}</MainClass>
         </body>

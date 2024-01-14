@@ -5,7 +5,7 @@ const schema = new Schema({
   owner: String,
 });
 
-export const UserDb = models.Boxes || model('Boxes', schema);
+export const BoxesDb = models.Boxes || model('Boxes', schema);
 
 
 export async function createBox (U, data) {

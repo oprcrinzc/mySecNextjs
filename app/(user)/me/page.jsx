@@ -2,14 +2,12 @@
 
 import React, { useEffect , useState} from 'react'
 import { useRouter } from 'next/navigation'
-import {user} from '../lib/user/user'
+import {user} from '../../lib/user/get'
 import styles from '/app/styles/page.module.css'
 
 // import Component
 import {ButtonCompo, RegisterCompo, LoginCompo, CardCompo} from '/app/components/star'
-// const [ButtonCompo, RegisterCompo, LoginCompo, CardCompo] = dynamic(()=>import('/app/components/star'), {ssr:false}) 
 import {HomeClass, GhostClass, PanelClass, MainClass} from '/app/components/class/star'
-
 
 export default function page() {
   const [u, setU] = useState({})
@@ -21,8 +19,8 @@ export default function page() {
   })
   },[])
   return (
-    <HomeClass>
-      <CardCompo>
+    <HomeClass flexGrow={1}>
+      <CardCompo flexDirection="column" flexGrow={1}>
         <h1>Information</h1>
         <div className="content">
           <h3>name</h3><p>{u.name}</p>
