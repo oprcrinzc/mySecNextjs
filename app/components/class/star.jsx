@@ -1,23 +1,28 @@
 import React from 'react'
 import styles from '/app/styles/page.module.css'
+import {calcClass} from '/app/lib/components/calcClass'
 
 export function GhostClass(props) {
+  let addClass = calcClass(props)
     return (
-        <div className={styles.ghost}>{props.children}</div>
+        <div className={`${styles.ghost} ${addClass}`}>{props.children}</div>
     )
 }
 export function HomeClass(props) {
+  let addClass = calcClass(props)
     return (
-      <div className={styles.home}>{props.children}</div>
+      <div className={`${styles.home} ${addClass}`}>{props.children}</div>
     )
 }
 export function PanelClass(props) {
+  let addClass = calcClass(props)
     return (
-      <div className={styles.panel}>{props.children}</div>
+      <div className={`${styles.panel} ${addClass}`}>{props.children}</div>
     )
 }
 export function MainClass(props) {
+  let addClass = calcClass(props)
     return (
-      <div className={styles.main}>{props.children}</div>
+      <div className={`${styles.main} ${addClass}`}>{props.children}</div>
     )
 }

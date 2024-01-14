@@ -1,11 +1,11 @@
 import { Schema, model, models } from 'mongoose';
 
 const userSchema = new Schema({
-  name: String,
+  name: {type: String, unique: true},
   password: String,
 });
 
-export const UserDb = models.User || model('User', userSchema);
+export const UserDb = models.Users || model('Users', userSchema);
 
 
 export async function createUser (U, data) {
@@ -16,4 +16,4 @@ export async function createUser (U, data) {
 }
 
 
-// module.export = {UserDb, createUser};
+// module.exports = {UserDb, createUser};

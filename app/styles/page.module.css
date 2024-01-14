@@ -1,22 +1,17 @@
 .main {
   display: flex;
   flex-wrap: wrap;
-  /* flex-shrink: ; */
-  /* flex-flow:row-reverse; */
-  flex-direction: column;
-  /* justify-content: space-between; */
-  /* align-items: center; */
-  /* padding: 6rem; */
+  flex-direction: row;
   min-height: 100vh;
 }
 
 .panel{
-  /* flex-grow: 1; */
-  /* flex-shrink: 1; */
   display: flex;
-  /* flex-wrap: wrap; */
+  /* justify-content: space-between; */
+  flex-direction: column;
+  gap: .2rem !important;
   margin: .4rem !important;
-  padding: 1rem;
+  padding: .2rem;
   background-color: rgb(81, 57, 82);
   border-radius: 1rem;
   border: solid 1px rgb(54, 30, 54);
@@ -24,24 +19,41 @@
 }
 .panel > .button {
   flex-grow: 0;
-  /* position: absolute; */
   background-color: rgb(173, 96, 192);
+}
+.panel > *:last-child {
+  margin-top: auto;
+  background-color: rgb(223, 156, 209);
+  border: 1px solid rgb(109, 41, 105);
+  color: rgb(93, 54, 86);
 }
 
 .ghost {
   display: flex;
   flex-grow: 1;
+  /* gap: 1rem; */
 }
-@media screen and (max-width:860px){
+@media screen and (max-width:923px){
+  .main {
+    flex-direction: column !important;
+  }
+  .panel {
+    flex-direction: row !important;
+    gap: .2rem !important;
+  }
+  .panel > *:last-child {
+    margin-top: 0 !important;
+    margin-left: auto !important;
+  }
   .ghost {
-    flex-direction: column;
+    flex-direction: column !important;
   }
   .home > * {
     height: auto;
   }
   .card {
     margin: 0;
-    width: 1vh;
+    /* width: 1vh; */
   }
   /* .main {
     width: fit-content;
@@ -51,6 +63,8 @@
 .home {
   display: flex;
   margin: .4rem !important;
+  /* margin-left: 0;
+  margin-right: 0; */
   padding: 1rem;
   background-color: rgb(236, 170, 238);
   flex-grow: 1;
@@ -62,18 +76,19 @@
 .home > * {height: min-content;}
 
 .button {
-  padding: 1rem;
+  padding: .1rem;
   background-color: rgb(109, 41, 105);
   color: aliceblue;
-  border-radius: 1rem;
+  border-radius: .8rem;
   font-weight: bold;
   font-size: 24px;
   user-select: none;
   cursor: pointer;
   text-decoration: none;
+  text-align: center;
 }
 .button:hover {
-  transform: scale(1.1);
+  transform: scale(1.01);
   filter: brightness(90%);
 }
 .button:active {
@@ -120,6 +135,10 @@
   flex-grow: 1;
 }
 
-/* .card > .actions {
-  flex-grow: 1;
-} */
+
+.flexRow {flex-direction: row;}
+.flexColumn {flex-direction: column;}
+.flexGrow0 {flex-grow: 0;}
+.flexGrow1 {flex-grow: 1;}
+.gap0 {gap: 0;}
+.gap1 {gap: 1rem;}

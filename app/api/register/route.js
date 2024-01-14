@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation"
-import register from "/app/lib/register";
+import register from "/app/lib/user/register";
 
 export async function POST(req) {
   const formData = await req.formData()
