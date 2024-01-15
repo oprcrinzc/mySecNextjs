@@ -66,7 +66,7 @@ export default function RootLayout({ children }) {
         <MainClass>
           <PanelClass flexDirection="column" >
             <Link className={styles.button} id='l' href="/" scroll={true}>Home</Link>
-            <Link className={styles.button} id='l' href="box" scroll={true}>Box</Link>
+            <Link className={styles.button} id='l' href="/box" scroll={true}>Box</Link>
             {
         u.isLogin == false ? <Link className={styles.button} id='r' href="/login" scroll={true}>Login</Link> : <Link className={styles.button} id='r' href="/me" scroll={true}>{u.name}</Link>
     }
